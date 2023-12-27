@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>100xdevs</title>
+    </head>
+    <body>
+        <input type="number" id="first-number" placeholder="FirstNumber" />
+        <br />
+        <br/>
+        <input type="number" id="second-number" placeholder="SecondNumber" />
+        <br/>
+        <br/>
+        <button onclick=btnHandler()>Calcuate Sum</button>
+        <p id="finalSum"></p>
+    </body>
+    <script>
+        
+        const btnHandler =() => {
+            const firstValue = document.getElementById("first-number").value;
+            const secondValue = document.getElementById("second-number").value;
+            document.getElementById("finalSum").innerText = Number(firstValue) + Number(secondValue);
+        }
+    </script>
+</html>
