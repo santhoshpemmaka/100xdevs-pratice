@@ -11,7 +11,8 @@ app.get("/", (req, res) => {
 });
 
 app.post('/sum', (req, res) => {
-    const { num1,num2 } = req.body;
+    const { num1, num2 } = req.body;
+    
     if (!num1 || !num2) {
         return res.status(403).json({
             message : "Give all mandatory input fields"

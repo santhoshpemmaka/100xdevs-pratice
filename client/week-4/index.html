@@ -12,13 +12,66 @@
         <br/>
         <button onclick=btnHandler()>Calcuate Sum</button>
         <p id="finalSum"></p>
-    </body>
-    <script>
+
+        <input type="number" id="principal" placeholder="Enter principal amount" />
+        <br />
+        <br/>
+        <input type="number" id="time-period" placeholder="Enter time period" />
+        <br/>
+        <br/>
+        <input type="number" id="rate-interest" placeholder="Enter rate interest" />
+        <br/>
+        <br/>
+        <button onclick=btnPrincipalHandler()>Calcuate Principal Amount</button>
+        <div id="principal-container"></div>
+        <script>
         
-        const btnHandler =() => {
-            const firstValue = document.getElementById("first-number").value;
-            const secondValue = document.getElementById("second-number").value;
-            document.getElementById("finalSum").innerText = Number(firstValue) + Number(secondValue);
-        }
-    </script>
+            const btnHandler = async() => {
+                const firstValue = document.getElementById("first-number").value;
+                const secondValue = document.getElementById("second-number").value;
+                const response = await fetch("https://one00x-dev-backend-week4.onrender.com/sum",{
+                    method: "POST",
+                    headers : {
+                        "Content-Type" : "application/json"
+                    },
+                    body : JSON.stringify({
+                        num1 : firstValue,
+                        num2 : secondValue
+                    })
+                });
+                const result = await response.json();
+                document.getElementById('finalSum').innerHTML = `Calculate sum is the ${result?.result}`; 
+            }
+
+            const btnPrincipalHandler = async() => {
+                const principalAmount = document.getElementById("principal").value;
+                const timePeriod = document.getElementById("time-period").value;
+                const rateInterest = document.getElementById("rate-interest").value;
+                
+                const response = await fetch("https://one00x-dev-backend-week4.onrender.com/principal-interest",{
+                    method : "POST",
+                    headers : {
+                        'Content-Type' : "application/json"
+                    },
+                    body : JSON.stringify({
+                        principal : Number(principalAmount),
+                        time : Number(timePeriod),
+                        rate : Number(rateInterest)
+                    })
+                });
+                const result = await response.json();
+                const parent = document.getElementById('principal-container');
+                const firstChild = document.createElement('p');
+                firstChild.innerHTML = `Interest Amount ${result.interest}`;
+                firstChild.setAttribute("id","interest")
+                const secondChild = document.createElement('p');
+                secondChild.setAttribute("id","total-amount")
+                secondChild.innerHTML = `Total Amount ${result.totalAmount}`;
+                parent.appendChild(firstChild);
+                parent.appendChild(secondChild);
+
+            }
+        </script>
+    </body>
+    
 </html>
