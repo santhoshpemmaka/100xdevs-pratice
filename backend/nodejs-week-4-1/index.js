@@ -1,13 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+const cors = require('cors');
 const problemRouter = require('./router/problems');
 const userRouter = require('./router/user');
 
 const mongooseURI = "mongodb+srv://santhoshpemmaka:ygbqtxWRdusk1KKD@cluster0.qyzqtwb.mongodb.net/meetcode";
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 app.use(problemRouter);
 app.use(userRouter)
