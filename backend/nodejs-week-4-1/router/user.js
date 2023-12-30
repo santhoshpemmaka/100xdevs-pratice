@@ -16,8 +16,8 @@ router.post('/signup', async(req, res) => {
                 message : "Provide all input fileds"
             })
         };
-        const existUser = await User.findOne({ email });
-        if (existUser.email) {
+        const existUser = await User.find({ email });
+        if (existUser && existUser?.email) {
             return res.status(200).json({
                 message : "User email already exists!. Try with login"
             })
