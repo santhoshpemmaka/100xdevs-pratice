@@ -1,0 +1,22 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.app-componet{
+    width: 50%;
+    margin: 1rem auto;
+}
+
+.todo-input{
+    padding: 0.5rem;
+    width: 50%;
+    margin: 1rem 0;
+}
+
+.todos-component{
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e6e6e6;
+}
+
