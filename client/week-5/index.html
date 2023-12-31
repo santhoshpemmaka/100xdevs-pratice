@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <div id="button-parent"></div>
+        <script>
+            let state = {
+                count : 0
+            }
+            const incrementHandler = () => {
+                state.count = state.count +1 
+                buttonRerender();
+            }
+
+            const buttonRerender = () => {
+                document.getElementById('button-parent').innerHTML = "";
+                const childComponent = buttonComponent(state.count);
+                document.getElementById('button-parent').appendChild(childComponent);
+            }
+
+            const buttonComponent = (count) => {
+                const button = document.createElement('button');
+                button.innerHTML = `counter ${count}`;
+                button.setAttribute('onclick',"incrementHandler()");
+                return button;
+            }
+            buttonRerender();
+        </script>
+    </body>
+</html>
