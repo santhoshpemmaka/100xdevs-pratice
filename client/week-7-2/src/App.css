@@ -1,0 +1,30 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.input-tag{
+    padding: 0.5rem;
+    margin-right: 1rem;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-tag1{
+    padding: 0.5rem;
+    margin-right: 1rem;
+    font-size: 16px;
+    outline: none;
+    margin-top: 1rem;
+}
+
+.button-tag{
+    padding : 0.5rem;
+    cursor: pointer;
+}
+
+.card{
+    border : 2px solid #e6e6e6;
+}
