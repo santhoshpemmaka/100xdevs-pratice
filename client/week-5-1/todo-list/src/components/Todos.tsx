@@ -1,7 +1,14 @@
 import React from 'react';
 
-const Todos = ({ todos }) => {
-    const markHandler = async(id) => {
+interface TodoList {
+    _id: string,
+    title: string,
+    description: string,
+    isCompleted: boolean
+}
+
+const Todos = ({ todos } : {todos:TodoList[]}) => {
+    const markHandler = async(id:string) => {
         const response = await fetch(`https://one00xdevs-todo.onrender.com/completed/${id}`);
         await response.json();
     }

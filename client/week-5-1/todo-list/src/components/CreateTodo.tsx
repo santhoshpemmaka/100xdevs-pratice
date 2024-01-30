@@ -6,7 +6,7 @@ const CreateTodo = () => {
         description: "",
         isCompleted: false
     })
-    const inputHandler = (e, type) => {
+    const inputHandler = (e:React.ChangeEvent<HTMLInputElement>, type:string) => {
         setuserTodo(prev => ({
             ...prev,
             [type]: e.target.value
