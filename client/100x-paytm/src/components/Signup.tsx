@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
+
+import { SignupType } from '@10xpemmaka/common';
 
 const Signup = () => {
     const [userInfo, setuserInfo] = useState({
@@ -8,7 +10,10 @@ const Signup = () => {
         email: "",
         password: ""
     });
-
+    let userInfo1: SignupType = {
+        email: "sad",
+        password :"dssa"
+    }
     const navigate = useNavigate();
 
     const inputHandler = (e:React.ChangeEvent<HTMLInputElement>, tag: string) => {
