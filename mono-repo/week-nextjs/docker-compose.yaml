@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  web:
+    image : santhoshpemmaka/docker-nextjs
+    container_name: nextjs-bootstrap
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "postgresql://santhosh.pemmaka:PHDZzb2q5JIQ@ep-wandering-violet-a1iwi90g.ap-southeast-1.aws.neon.tech/neondb?sslmode=require"
+volumes:
+  nextjs_data:
